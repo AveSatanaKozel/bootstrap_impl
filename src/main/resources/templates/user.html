@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+<nav class="navbar navbar-dark bg-dark justify-content-between">
+    <div class="navbar-brand">
+        <td th:text="${user.username}"/>
+        with roles:
+        <td th:text="${user.roles}"/>  <!--     спросить у Вадима как сделать не ссылкой-->
+    </div>
+    <form action="/logout" method="POST">
+
+        <button class="btn btn-dark " type="submit">Logout</button>
+    </form>
+</nav>
+
+
+<div class="container-fluid ">
+    <br/>
+    <div class="row justify-content-md-center">
+        <div class="col-lg-2 ">
+
+
+
+            <!-- 1 из 2 (узкая) -->
+            <div class="list-group col-sm-12 sidenav" >
+                <form action="/user" method="GET">
+                    <button class="btn btn-primary btn-block"  style="text-align: left" type="submit">User</button>
+                </form>
+            </div> <!-- 1 из 2 (узкая) Close -->
+
+        </div>
+
+        <div class="col-lg-10 gray tab-content">       <!-- 2 из 2 (широкая) -->
+
+
+
+            <h2>User information-page</h2>
+
+
+                <div class="gray border">
+                    <h4 style="text-align: left; margin: 1%"> About user</h4>
+                </div>
+
+            <table class="table table-striped table-bordered">
+
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First name</th>
+                    <th>City</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                </tr>
+
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td th:text="${user.id}"/>
+                    <td th:text="${user.username}"/>
+                    <td th:text="${user.city}"/>
+                    <td th:text="${user.email}"/>
+                    <td th:text="${user.roles}"/>
+                </tr>
+                </tbody>
+            </table>
+        </div>       <!-- 2 из 2 (широкая) Close -->
+    </div>
+</div>
+</div>
+
+<br/>
+
+
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"-->
+<!--        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"-->
+<!--        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"-->
+<!--        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"-->
+<!--        crossorigin="anonymous"></script>-->
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Admin</title>-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"-->
+<!--          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+<!--</head>-->
+
+<!--<body>-->
+<!--<nav class="navbar navbar-dark bg-dark justify-content-between">-->
+<!--    <div class="navbar-brand">-->
+<!--        <td th:text="${user.username}"/>-->
+<!--        with roles:-->
+<!--        <td th:text="${user.roles}"/>  &lt;!&ndash;     спросить у Вадима как сделать не ссылкой&ndash;&gt;-->
+<!--    </div>-->
+<!--    <form action="/logout" method="POST">-->
+
+<!--        <button class="btn btn-dark " type="submit">Logout</button>-->
+<!--    </form>-->
+<!--</nav>-->
+
+<!--<div style="display: grid; grid-template-columns: 1fr 5fr; height: calc(100vh - 88px)">-->
+<!--    &lt;!&ndash; Left panel &ndash;&gt;-->
+<!--    <div class="list-group col-sm-12 sidenav margin white" id="list-tab" role="tablist">-->
+<!--        <a class="list-group-item list-group-item-action active" id="list-user" data-toggle="list"-->
+<!--           th:href="@{/user}"-->
+<!--           role="tab">User</a>-->
+<!--    </div> &lt;!&ndash; Left panel Close &ndash;&gt;-->
+<!--    <div class="container-fluid" style="background: #eee">-->
+
+
+<!--        <h2>User information-page</h2>-->
+<!--        <hr>-->
+<!--        <h4> About user</h4>-->
+<!--        <hr>-->
+<!--        <table class="table table-striped table-bordered">-->
+
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>ID</th>-->
+<!--                <th>First name</th>-->
+<!--                <th>City</th>-->
+<!--                <th>Email</th>-->
+<!--                <th>Role</th>-->
+<!--            </tr>-->
+
+<!--            </thead>-->
+
+<!--            <tbody>-->
+
+
+<!--            <tr>-->
+<!--                <td th:text="${user.id}"/>-->
+<!--                <td th:text="${user.username}"/>-->
+<!--                <td th:text="${user.city}"/>-->
+<!--                <td th:text="${user.email}"/>-->
+<!--                <td th:text="${user.roles}"/>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+
+
+<!--    </div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;<div class="container-fluid ">&ndash;&gt;-->
+<!--&lt;!&ndash;    <br/>&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="row justify-content-md-center">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="col-lg-2 ">&ndash;&gt;-->
+
+<!--&lt;!&ndash;            1 из 2 (узкая)&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="col-lg-10" style="background: #eee">&ndash;&gt;-->
+<!--&lt;!&ndash;            2 из 2 (широкая)&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;            <h2>User information-page</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;            <hr>&ndash;&gt;-->
+<!--&lt;!&ndash;            <h4> About user</h4>&ndash;&gt;-->
+<!--&lt;!&ndash;            <hr>&ndash;&gt;-->
+<!--&lt;!&ndash;            &lt;!&ndash;            <table class="table">&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;                &lt;!&ndash;        <thead class="thead-gray table-bordered">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                &lt;!&ndash;        <tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                &lt;!&ndash;            &lt;!&ndash;            <h5>About user</h5>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                &lt;!&ndash;            <th>About user</th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                &lt;!&ndash;        </tr>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                &lt;!&ndash;        </thead>&ndash;&gt;&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;&lt;!&ndash;                <div class="white">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <div class="gray border">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                        <h4 style="text-align: left; margin: 1%"> About user</h4>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                </div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                <table class="table table-striped table-bordered">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <thead>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th>ID</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th>First name</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th>City</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th>Email</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th>Role</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </tr>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    </thead>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <tbody>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;                    <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td th:text="${user.id}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td th:text="${user.username}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td th:text="${user.city}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td th:text="${user.email}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <td th:text="${user.roles}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;                </table>&ndash;&gt;-->
+<!--&lt;!&ndash;            </table>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
+
+<!--<br/>-->
+
+
+<!--&lt;!&ndash;<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"&ndash;&gt;-->
+<!--&lt;!&ndash;        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"&ndash;&gt;-->
+<!--&lt;!&ndash;        crossorigin="anonymous"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"&ndash;&gt;-->
+<!--&lt;!&ndash;        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"&ndash;&gt;-->
+<!--&lt;!&ndash;        crossorigin="anonymous"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"&ndash;&gt;-->
+<!--&lt;!&ndash;        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"&ndash;&gt;-->
+<!--&lt;!&ndash;        crossorigin="anonymous"></script>&ndash;&gt;-->
+<!--</body>-->
+<!--</html>-->
